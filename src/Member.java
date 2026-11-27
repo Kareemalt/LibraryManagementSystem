@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public abstract class Member {
 
     private static int nextId = 1;
@@ -25,6 +27,10 @@ public abstract class Member {
 
     public String getPhoneNumber() {
         return phoneNumber;
+    }
+
+    public BorrowingHistory getBorrowingHistory() {
+        return borrowingHistory;
     }
 
     public void setName(String name) {

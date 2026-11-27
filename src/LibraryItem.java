@@ -3,8 +3,9 @@ import java.util.ArrayList;
 public abstract class LibraryItem implements Reservable {
 
     private String title;
-    private int id;
+    private final int id;
     private String shelfLocation;
+    private boolean isAvailable;
     private ArrayList<Reservation> reservations = new ArrayList<>();
 
     LibraryItem(String title, int id, String shelfLocation){
@@ -59,7 +60,7 @@ public abstract class LibraryItem implements Reservable {
     }
 
     public abstract int getLoanPeriod();
-    public abstract double getLateFee(int daysLate);
+    public abstract double getLateFee(long daysLate);
 }
 
 

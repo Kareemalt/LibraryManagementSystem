@@ -12,7 +12,7 @@ public class Magazine extends LibraryItem {
     }
 
     @Override
-    public double getLateFee(int daysLate){
+    public double getLateFee(long daysLate){
         return daysLate * 1.5;
     }
 

@@ -12,7 +12,7 @@ public class DVD extends LibraryItem {
     }
 
     @Override
-    public double getLateFee(int daysLate){
+    public double getLateFee(long daysLate){
         return daysLate * 8;
     }
 
