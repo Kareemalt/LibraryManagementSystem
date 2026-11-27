@@ -5,12 +5,14 @@ public abstract class Member {
     private final int id;
     private String name;
     private String phoneNumber;
+    private final BorrowingHistory borrowingHistory;
 
     public Member(String name, String phoneNumber){
 
         id = nextId++;
         setName(name);
         setPhoneNumber(phoneNumber);
+        borrowingHistory = new BorrowingHistory();
     }
 
     public int getId(){
