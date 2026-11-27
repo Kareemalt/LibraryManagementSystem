@@ -28,8 +28,12 @@ public abstract class LibraryItem implements Reservable {
         return shelfLocation;
     }
 
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+
     public void setTitle(String title){
-        if(title.isBlank()){
+        if(title == null || title.isBlank()){
              throw new IllegalArgumentException("The title can not be empty!");
         }
         else{
@@ -38,7 +42,7 @@ public abstract class LibraryItem implements Reservable {
     }
 
     public void setShelfLocation(String shelfLocation){
-        if(shelfLocation.isBlank()){
+        if(shelfLocation == null || shelfLocation.isBlank()){
             throw new IllegalArgumentException("Shelf Location can not be empty!");
         }
         else{

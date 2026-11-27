@@ -8,6 +8,9 @@ public class Reservation {
 
     public Reservation(Member member, Reservable thingToReserve){
 
+        if(member == null || thingToReserve == null){
+            throw new IllegalArgumentException("Member or the thing you want to reserve can not be null");
+        }
         reservationId = nextReservationId++;
         this.member = member;
         this.thingToReserve = thingToReserve;
