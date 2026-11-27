@@ -12,4 +12,16 @@ public class Reservation {
         this.member = member;
         this.thingToReserve = thingToReserve;
     }
+
+    public int getReservationId() {
+        return reservationId;
+    }
+
+    public Member getMember() {
+        return member;
+    }
+
+    public Reservable getThingToReserve() {
+        return thingToReserve;
+    }
 }

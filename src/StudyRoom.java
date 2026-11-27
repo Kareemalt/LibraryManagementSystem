@@ -9,13 +9,8 @@ public class StudyRoom implements Reservable {
     ArrayList<Reservation> reservations = new ArrayList<>();
 
     public StudyRoom(int seatingCapacity){
-
-        if(seatingCapacity <= 0){
-            throw new IllegalArgumentException("Seating Capacity must be a positive number!");
-        }
-
+        setSeatingCapacity(seatingCapacity);
         roomNumber = nextRoomNumber++;
-        this.seatingCapacity = seatingCapacity;
     }
 
     public int getSeatingCapacity() {
@@ -24,6 +19,13 @@ public class StudyRoom implements Reservable {
 
     public int getRoomNumber() {
         return roomNumber;
+    }
+
+    public void setSeatingCapacity(int seatingCapacity) {
+        if(seatingCapacity <= 0){
+            throw new IllegalArgumentException("Seating Capacity must be a positive number!");
+        }
+        this.seatingCapacity = seatingCapacity;
     }
 
     @Override
@@ -36,7 +38,5 @@ public class StudyRoom implements Reservable {
         reservations.remove(reservation);
     }
 
-    public void setSeatingCapacity(int seatingCapacity) {
-        this.seatingCapacity = seatingCapacity;
-    }
+
 }

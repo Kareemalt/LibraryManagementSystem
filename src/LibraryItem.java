@@ -7,7 +7,7 @@ public abstract class LibraryItem implements Reservable {
     private String title;
     private final int id;
     private String shelfLocation;
-    private boolean isAvailable;
+    private boolean isAvailable = true;
     private ArrayList<Reservation> reservations = new ArrayList<>();
 
     LibraryItem(String title, String shelfLocation){
@@ -29,7 +29,7 @@ public abstract class LibraryItem implements Reservable {
     }
 
     public void setTitle(String title){
-        if(title.isEmpty()){
+        if(title.isBlank()){
              throw new IllegalArgumentException("The title can not be empty!");
         }
         else{
@@ -38,7 +38,7 @@ public abstract class LibraryItem implements Reservable {
     }
 
     public void setShelfLocation(String shelfLocation){
-        if(shelfLocation.isEmpty()){
+        if(shelfLocation.isBlank()){
             throw new IllegalArgumentException("Shelf Location can not be empty!");
         }
         else{

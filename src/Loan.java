@@ -3,8 +3,8 @@ import java.time.temporal.ChronoUnit;
 
 public class Loan {
 
-    private Member member;
-    private LibraryItem item;
+    private final Member member;
+    private final LibraryItem item;
 
     private final LocalDate borrowDate;
     private final LocalDate dueDate;

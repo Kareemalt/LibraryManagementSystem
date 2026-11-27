@@ -34,7 +34,7 @@ public abstract class Member {
     }
 
     public void setName(String name) {
-        if(name.isEmpty()){
+        if(name.isBlank()){
             throw new IllegalArgumentException("Name can not be empty");
         }
 
@@ -42,6 +42,10 @@ public abstract class Member {
     }
 
     public void setPhoneNumber(String phoneNumber){
+
+        if(phoneNumber == null || phoneNumber.isBlank()){
+            throw new IllegalArgumentException("A phone number can not be empty!");
+        }
 
         for(int i = 0; i < phoneNumber.length(); i++){
 
