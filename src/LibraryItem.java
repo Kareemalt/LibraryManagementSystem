@@ -2,20 +2,17 @@ import java.util.ArrayList;
 
 public abstract class LibraryItem implements Reservable {
 
+    private static int nextId = 1;
+
     private String title;
     private final int id;
     private String shelfLocation;
     private boolean isAvailable;
     private ArrayList<Reservation> reservations = new ArrayList<>();
 
-    LibraryItem(String title, int id, String shelfLocation){
-
-        if(id <= 0){
-            throw new IllegalArgumentException("ID must be a positive number!");
-        }
-
+    LibraryItem(String title, String shelfLocation){
         setTitle(title);
-        this.id = id;
+        this.id = nextId++;
         setShelfLocation(shelfLocation);
     }
 
@@ -57,6 +54,15 @@ public abstract class LibraryItem implements Reservable {
     @Override
     public void cancelReservation(Reservation reservation){
         reservations.remove(reservation);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%-10s | ID: %-4d | %-25s | Shelf: %-4s",
+                getClass().getSimpleName(),
+                id,
+                title,
+                shelfLocation);
     }
 
     public abstract int getLoanPeriod();

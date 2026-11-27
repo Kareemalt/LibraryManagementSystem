@@ -2,8 +2,8 @@ public class DVD extends LibraryItem {
 
     private final int loanPeriod = 14;
 
-    public DVD(String title, int id, String shelfLocation){
-        super(title, id, shelfLocation);
+    public DVD(String title, String shelfLocation){
+        super(title, shelfLocation);
     }
 
     @Override

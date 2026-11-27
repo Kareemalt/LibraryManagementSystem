@@ -53,5 +53,12 @@ public abstract class Member {
         this.phoneNumber = phoneNumber;
     }
 
+    @Override
+    public String toString(){
+        return String.format("%-10s | %-20s | %-15s",
+                getClass().getSimpleName(),
+                name,
+                phoneNumber);
+    }
     public abstract int getBorrowingLimit();
 }

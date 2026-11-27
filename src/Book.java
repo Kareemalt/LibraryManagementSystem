@@ -2,8 +2,8 @@ public class Book extends LibraryItem {
 
     private final int loanPeriod = 21;
 
-    public Book(String title, int id, String shelfLocation){
-        super(title, id, shelfLocation);
+    public Book(String title, String shelfLocation){
+        super(title, shelfLocation);
     }
 
     @Override

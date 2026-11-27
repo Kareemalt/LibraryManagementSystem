@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+//This is delegation :D :3 :P
+
 public class Catalog <T extends LibraryItem>{
 
     private ArrayList<T> items = new ArrayList<>();

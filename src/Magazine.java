@@ -2,8 +2,8 @@ public class Magazine extends LibraryItem {
 
     private final int loanPeriod = 7;
 
-    public Magazine(String title, int id, String shelfLocation){
-        super(title, id, shelfLocation);
+    public Magazine(String title, String shelfLocation){
+        super(title, shelfLocation);
     }
 
     @Override
