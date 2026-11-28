@@ -6,7 +6,7 @@ public class StudyRoom implements Reservable {
 
     private final int roomNumber;
     private int seatingCapacity;
-    ArrayList<Reservation> reservations = new ArrayList<>();
+    private ArrayList<Reservation> reservations = new ArrayList<>();
 
     public StudyRoom(int seatingCapacity){
         setSeatingCapacity(seatingCapacity);
@@ -19,6 +19,10 @@ public class StudyRoom implements Reservable {
 
     public int getRoomNumber() {
         return roomNumber;
+    }
+
+    public ArrayList<Reservation> getReservations() {
+        return new ArrayList<>(reservations);
     }
 
     public void setSeatingCapacity(int seatingCapacity) {
