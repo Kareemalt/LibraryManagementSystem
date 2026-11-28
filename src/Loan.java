@@ -17,6 +17,14 @@ public class Loan {
         dueDate = borrowDate.plusDays(item.getLoanPeriod());
     }
 
+    public Member getMember() {
+        return member;
+    }
+
+    public LibraryItem getItem() {
+        return item;
+    }
+
     public LocalDate getBorrowDate(){
         return borrowDate;
     }
@@ -36,6 +44,10 @@ public class Loan {
         else{
             throw new IllegalStateException("The item has already been returned.");
         }
+    }
+
+    public boolean isReturned(){
+        return returnDate != null;
     }
 
     public boolean isOverdue(){

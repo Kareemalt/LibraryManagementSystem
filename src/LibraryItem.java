@@ -32,6 +32,10 @@ public abstract class LibraryItem implements Reservable {
         return isAvailable;
     }
 
+    public ArrayList<Reservation> getReservations(){
+        return new ArrayList<>(reservations);
+    }
+
     public void setTitle(String title){
         if(title == null || title.isBlank()){
              throw new IllegalArgumentException("The title can not be empty!");
@@ -52,12 +56,41 @@ public abstract class LibraryItem implements Reservable {
 
     @Override
     public void reserve(Reservation reservation){
+
+        if(reservation == null){
+            throw new IllegalArgumentException("A reservation can not be null!");
+        }
+        else if(reservations.contains(reservation)){
+            throw new IllegalStateException("There is an existing reservation!");
+        }
+        else if(!isAvailable){
+            throw new IllegalStateException("The item is unavailable!");
+        }
+
         reservations.add(reservation);
     }
 
     @Override
     public void cancelReservation(Reservation reservation){
-        reservations.remove(reservation);
+        if(reservation == null || !reservations.remove(reservation)){
+            throw new IllegalArgumentException("The reservation doesn't exist");
+        }
+    }
+
+    void markBorrowed(){
+        if(!isAvailable){
+            throw new IllegalStateException("The item is already unavailable!");
+        }
+
+        isAvailable = false;
+    }
+
+    void markReturned(){
+        if(isAvailable){
+            throw new IllegalStateException("The item is already available!");
+        }
+
+        isAvailable = true;
     }
 
     @Override
