@@ -11,6 +11,10 @@ public class Loan {
     private LocalDate returnDate = null;
 
     public Loan(Member member, LibraryItem item){
+
+        if(member == null || item == null){
+            throw new IllegalArgumentException("Member or item can not be null.");
+        }
         this.member = member;
         this.item = item;
         borrowDate = LocalDate.now();

@@ -34,13 +34,30 @@ public class StudyRoom implements Reservable {
 
     @Override
     public void reserve(Reservation reservation){
+
+        if(reservation == null){
+            throw new IllegalArgumentException("The reservation can not be null!");
+        }
+        else if(reservations.contains(reservation)){
+            throw new IllegalStateException("The reservation already exists!");
+        }
+
         reservations.add(reservation);
     }
 
     @Override
     public void cancelReservation(Reservation reservation){
-        reservations.remove(reservation);
+
+        if(reservation == null || !reservations.remove(reservation)){
+            throw new IllegalArgumentException("The reservation doesn't exist!");
+        }
     }
 
+    @Override
+    public String toString(){
+        return "Study room Number: " + roomNumber +
+               ", Seating Capacity: " + seatingCapacity +
+               ", Active Reservations: " + reservations.size();
+    }
 
 }

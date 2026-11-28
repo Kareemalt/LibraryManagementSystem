@@ -61,7 +61,7 @@ public abstract class LibraryItem implements Reservable {
             throw new IllegalArgumentException("A reservation can not be null!");
         }
         else if(reservations.contains(reservation)){
-            throw new IllegalStateException("There is an existing reservation!");
+            throw new IllegalStateException("The reservation already exists!");
         }
         else if(!isAvailable){
             throw new IllegalStateException("The item is unavailable!");

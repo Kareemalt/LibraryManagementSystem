@@ -10,10 +10,9 @@ public abstract class Member {
     private final BorrowingHistory borrowingHistory;
 
     public Member(String name, String phoneNumber){
-
-        id = nextId++;
         setName(name);
         setPhoneNumber(phoneNumber);
+        id = nextId++;
         borrowingHistory = new BorrowingHistory();
     }
 
@@ -34,7 +33,7 @@ public abstract class Member {
     }
 
     public void setName(String name) {
-        if(name.isBlank()){
+        if(name == null || name.isBlank()){
             throw new IllegalArgumentException("Name can not be empty");
         }
 
